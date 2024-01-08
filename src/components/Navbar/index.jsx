@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
 import './Navbar.css'
+import { useContext } from "react"
+import { ThemeContext } from "../../context/ThemeContext"
+
 
 const Navbar = () => {
+  const { toggleTheme } = useContext(ThemeContext)
+
   return (
     <nav className='navbar'>
       <h2>
@@ -17,6 +22,8 @@ const Navbar = () => {
           <Link to='/new' className="newBtn">Novo Post</Link>
         </li>
       </ul>
+
+      <button className="newBtn" onClick={toggleTheme}>Mudar tema</button>
     </nav>
   )
 }
